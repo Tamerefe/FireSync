@@ -3,19 +3,19 @@
 #include <time.h>
 #include <unistd.h>
 
-#define weapon 34
+#define WEAPON 34
 
-double balanced[weapon];
+double balanced[WEAPON];
 
 struct casE{
-    char name[weapon][weapon];
-    int price[weapon];
-    int damage[weapon];
-    float firerate[weapon];
-    int magazine[weapon];
-    int falloff[weapon];
-    float range[weapon];
-    float recoil[weapon];
+    char name[WEAPON][WEAPON];
+    int price[WEAPON];
+    int damage[WEAPON];
+    float firerate[WEAPON];
+    int magazine[WEAPON];
+    int falloff[WEAPON];
+    float range[WEAPON];
+    float recoil[WEAPON];
 };
 
 struct casE ammo;
@@ -40,8 +40,9 @@ void gamemenu(){
     fptr = fopen("case.txt","r");
 
     int i = 0;
+    //Extracting weapon data from file
     while (fscanf(fptr, "%s %d %d %f %d %d %f %f", ptr->name[i], &ptr->price[i], &ptr->damage[i],
-                &ptr->firerate[i], &ptr->magazine[i], &ptr->falloff[i], &ptr->range[i], &ptr->recoil[i]) != EOF && i < weapon) {
+                &ptr->firerate[i], &ptr->magazine[i], &ptr->falloff[i], &ptr->range[i], &ptr->recoil[i]) != EOF && i < WEAPON) {
         balanced[i] = ((ptr->damage[i] * ptr->firerate[i]) + (ptr->magazine[i] * ptr->range[i])) \
         / (float)(ptr->falloff[i] + ptr->recoil[i]); 
         i++;
@@ -90,9 +91,10 @@ void about(struct casE *ptr, int count){
     printf("|Weapon Name |Price($)|Damage|Fire Rate (RPM)|Magazine Size|Damage Falloff|Accurate Range|Recoil|\n");
     printf("|------------|--------|------|---------------|-------------|--------------|--------------|------|\n");
 
+    //Printing weapon data to the screen
     for (int j = 0; j < count; j++) {
-        printf("|%-12s|%8d|%6d|%15.2f|%13d|%14d|%14.2f|%6.1f|%.3f|\n", ptr->name[j], ptr->price[j], ptr->damage[j],
-               ptr->firerate[j], ptr->magazine[j], ptr->falloff[j],ptr->range[j],ptr->recoil[j],balanced[j]/100);
+        printf("|%-12s|%8d|%6d|%15.2f|%13d|%14d|%14.2f|%6.1f|\n", ptr->name[j], ptr->price[j], ptr->damage[j],
+               ptr->firerate[j], ptr->magazine[j], ptr->falloff[j],ptr->range[j],ptr->recoil[j]);
     }
     printf("|------------|--------|------|---------------|-------------|--------------|--------------|------|\n");
 
@@ -101,10 +103,8 @@ void about(struct casE *ptr, int count){
 void play(struct casE *ptr){
 
     int chs,j,wp,k,slctw,blnc,randnum,enemy=0,you=0;
-    char chsu[5];
     srand(time(NULL));
     
-
     printf("Welcome the FireSync\n1) T: \n2) CT: \nPlease select your team: ");
     scanf("%d",&chs);
     for (size_t i = 1; i <= 5; i++){
@@ -119,10 +119,26 @@ void play(struct casE *ptr){
                 }
                 printf("Please Select your weapon: ");
                 scanf("%d",&slctw);
+                //Prevent possible errors
+                while (1 == 1){
+                    if (slctw > 10) {
+                        printf("An invalid number was entered\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    } else if(blnc < ptr->price[slctw-1]){
+                        printf("Your money isn't enough\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    }
+                    else {
+                        break;
+                    }
+                }
                 blnc -= ptr->price[slctw-1];
                 randnum = rand() % 10;
                 printf("Your Weapon is %s \nEnemy Weapon is %s",ptr->name[slctw-1],ptr->name[randnum]);
                 usleep(1000000);
+                //Showing the result of the round and the winner
                 if (balanced[slctw-1] > balanced[randnum]){
                     printf("\nYou win\n");
                     you++;
@@ -141,16 +157,28 @@ void play(struct casE *ptr){
                 }
                 printf("Please Select your weapon: ");
                 scanf("%d",&slctw);
-                if (blnc < ptr->price[10+(slctw-1)]) {
-                    printf("Your money isn't enough\n");
-                    printf("Please Select your weapon: ");
-                    scanf("%d",&slctw);
-                }else{
-                    blnc -= ptr->price[10+(slctw-1)];
-                }   
+                //Prevent possible errors
+                while (1 == 1){
+                    if (slctw > 7) {
+                        printf("An invalid number was entered\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    } else if(blnc < ptr->price[10+(slctw-1)]){
+                        printf("Your money isn't enough\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    }
+                    else {
+                        break;
+                    }
+                }
+                //Balance reduction
+                blnc -= ptr->price[10+(slctw-1)];
+                //Weapon selection part of the bot
                 randnum = (rand() % 7) + 10;
                 printf("Your Weapon is %s \nEnemy Weapon is %s",ptr->name[10+(slctw-1)],ptr->name[randnum]);
                 usleep(1000000);
+                //Showing the result of the round and the winner
                 if (balanced[10+(slctw-1)] > balanced[randnum]){
                     printf("\nYou win\n");
                     you++;
@@ -169,16 +197,28 @@ void play(struct casE *ptr){
                 }
                 printf("Please Select your weapon: ");
                 scanf("%d",&slctw);
-                if (blnc < ptr->price[17+(slctw-1)]) {
-                    printf("Your money isn't enough\n");
-                    printf("Please Select your weapon: ");
-                    scanf("%d",&slctw);
-                }else{
-                    blnc -= ptr->price[17+(slctw-1)];
+                //Prevent possible errors
+                while (1 == 1){
+                    if (slctw > 6) {
+                        printf("An invalid number was entered\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    } else if(blnc < ptr->price[17+(slctw-1)]){
+                        printf("Your money isn't enough\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    }
+                    else {
+                        break;
+                    }
                 }
+                //Balance reduction
+                blnc -= ptr->price[17+(slctw-1)];
+                //Weapon selection part of the bot
                 randnum = (rand() % 6) + 17;
                 printf("Your Weapon is %s \nEnemy Weapon is %s",ptr->name[17+(slctw-1)],ptr->name[randnum]);
                 usleep(1000000);
+                //Showing the result of the round and the winner
                 if (balanced[17+(slctw-1)] > balanced[randnum]){
                     printf("\nYou win\n");
                     you++;
@@ -197,16 +237,28 @@ void play(struct casE *ptr){
                 }
                 printf("Please Select your weapon: ");
                 scanf("%d",&slctw);
-                if (blnc < ptr->price[23+(slctw-1)]) {
-                    printf("Your money isn't enough\n");
-                    printf("Please Select your weapon: ");
-                    scanf("%d",&slctw);
-                }else{
-                    blnc -= ptr->price[23+(slctw-1)];
+                //Prevent possible errors
+                while (1 == 1){
+                    if (slctw > 7) {
+                        printf("An invalid number was entered\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    } else if(blnc < ptr->price[23+(slctw-1)]){
+                        printf("Your money isn't enough\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    }
+                    else {
+                        break;
+                    }
                 }
+                //Balance reduction
+                blnc -= ptr->price[23+(slctw-1)];
+                //Weapon selection part of the bot
                 randnum = (rand() % 7) + 23;
                 printf("Your Weapon is %s \nEnemy Weapon is %s",ptr->name[23+(slctw-1)],ptr->name[randnum]);
                 usleep(1000000);
+                //Showing the result of the round and the winner
                 if (balanced[23+(slctw-1)] > balanced[randnum]){
                     printf("\nYou win\n");
                     you++;
@@ -225,16 +277,28 @@ void play(struct casE *ptr){
                 }
                 printf("Please Select your weapon: ");
                 scanf("%d",&slctw);
-                if (blnc < ptr->price[30+(slctw-1)]) {
-                    printf("Your money isn't enough\n");
-                    printf("Please Select your weapon: ");
-                    scanf("%d",&slctw);
-                }else{
-                    blnc -= ptr->price[30+(slctw-1)];
+                //Prevent possible errors
+                while (1 == 1){
+                    if (slctw > 4) {
+                        printf("An invalid number was entered\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    } else if(blnc < ptr->price[30+(slctw-1)]){
+                        printf("Your money isn't enough\n");
+                        printf("Please Select your weapon: ");
+                        scanf("%d",&slctw);
+                    }
+                    else {
+                        break;
+                    }
                 }
+                //Balance reduction
+                blnc -= ptr->price[30+(slctw-1)];
+                //Weapon selection part of the bot
                 randnum = (rand() % 4) + 30;
                 printf("Your Weapon is %s \nEnemy Weapon is %s",ptr->name[30+(slctw-1)],ptr->name[randnum]);
                 usleep(1000000);
+                //Showing the result of the round and the winner
                 if (balanced[30+(slctw-1)] > balanced[randnum]){
                     printf("\nYou win\n");
                     you++;
@@ -250,4 +314,5 @@ void play(struct casE *ptr){
     }
 }
 
+// Ref
 //https://docs.google.com/spreadsheets/d/11tDzUNBq9zIX6_9Rel__fdAUezAQzSnh5AVYzCP060c
