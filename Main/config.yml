@@ -1,0 +1,111 @@
+# CS2 Weapon Battle Game Configuration
+
+# Balanced Score Formula Weights
+weights:
+  damage: 1.0      # Damage multiplier
+  firerate: 1.0    # Fire rate multiplier  
+  magazine: 1.0    # Magazine size multiplier
+  range: 1.0       # Range multiplier
+  denominator: 1.0 # Denominator (falloff + recoil) multiplier
+
+# Game Settings
+game:
+  rounds: 5
+  starting_balance: 900
+  round_bonuses: [1700, 2000, 2600, 3500]
+  
+# Economy Settings
+economy:
+  sell_rate: 0.7        # Weapon sell price (70% of original price)
+  win_bonus: 500        # Bonus money for winning a round
+  loss_bonus: 200       # Bonus money for losing a round
+  
+# Round Events (random events that affect weapons)
+events:
+  foggy_weather:
+    probability: 0.15   # 15% chance
+    effect: "range"
+    modifier: -0.2      # -20% range
+    description: "Foggy weather reduces weapon range by 20%"
+    
+  armored_enemies:
+    probability: 0.12   # 12% chance
+    effect: "damage"
+    modifier: -0.15     # -15% damage
+    description: "Armored enemies reduce weapon damage by 15%"
+    
+  windy_conditions:
+    probability: 0.10   # 10% chance
+    effect: "recoil"
+    modifier: 0.1       # +10% recoil
+    description: "Windy conditions increase weapon recoil by 10%"
+
+# Perks (special abilities)
+perks:
+  economist:
+    name: "Economist"
+    description: "10% discount on all weapon prices"
+    effect: "price"
+    modifier: -0.1
+    
+  control_master:
+    name: "Control Master"
+    description: "15% reduction in weapon recoil"
+    effect: "recoil"
+    modifier: -0.15
+    
+  long_shot:
+    name: "Long Shot"
+    description: "10% increase in weapon range"
+    effect: "range"
+    modifier: 0.1
+
+# Attachments (weapon modifications)
+attachments:
+  extended_mag:
+    name: "Extended Magazine"
+    description: "+10 magazine capacity"
+    effect: "magazine"
+    modifier: 10
+    price: 300
+    
+  grip:
+    name: "Grip"
+    description: "10% reduction in recoil"
+    effect: "recoil"
+    modifier: -0.1
+    price: 200
+    
+  suppressor:
+    name: "Suppressor"
+    description: "-5% damage, -10% recoil"
+    effects:
+      damage: -0.05
+      recoil: -0.1
+    price: 400
+
+# Difficulty Settings
+difficulty:
+  easy:
+    name: "Easy"
+    description: "Computer prefers weaker weapons"
+    weights:
+      low: 0.6      # 60% chance for weak weapons
+      medium: 0.3   # 30% chance for medium weapons
+      high: 0.1     # 10% chance for strong weapons
+      
+  normal:
+    name: "Normal"
+    description: "Balanced computer opponent"
+    weights:
+      low: 0.33     # 33% chance for weak weapons
+      medium: 0.34  # 34% chance for medium weapons
+      high: 0.33    # 33% chance for strong weapons
+      
+  hard:
+    name: "Hard"
+    description: "Computer prefers stronger weapons"
+    weights:
+      low: 0.1      # 10% chance for weak weapons
+      medium: 0.3   # 30% chance for medium weapons
+      high: 0.6     # 60% chance for strong weapons

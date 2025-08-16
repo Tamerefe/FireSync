@@ -1,0 +1,16 @@
+{
+  "total_games": 1,
+  "wins": 0,
+  "losses": 1,
+  "draws": 0,
+  "weapon_usage": {
+    "Desert Eagle": 1,
+    "Dual Berettas": 1,
+    "UMP-45": 1,
+    "M249": 1,
+    "SSG 08": 1
+  },
+  "achievements": [
+    "economist"
+  ]
+}

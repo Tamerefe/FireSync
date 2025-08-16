@@ -1,0 +1,131 @@
+# Türkçe Dil Dosyası
+
+menu:
+  title: "ANA MENÜ"
+  play: "Oyna"
+  options: "Seçenekler"
+  help: "Yardım"
+  about: "Hakkında"
+  statistics: "İstatistikler"
+  exit: "Çıkış"
+  choice_prompt: "Seçiminizi girin (1-7): "
+
+game:
+  title: "CS2 SİLAH SAVAŞI OYUNU"
+  welcome: "Silah savaşı oyununa hoş geldiniz!"
+  rounds_info: "Bilgisayara karşı %{rounds} raund oynayacaksınız."
+  budget_info: "Her raundda silah satın almak için bütçeniz olacak."
+  score_info: "Daha yüksek dengeli skora sahip silah kazanır!"
+  difficulty: "Zorluk: %{level}"
+  balance: "Bakiyeniz: $%{amount}"
+  round_bonus: "Raund bonusu: +$%{amount}"
+  press_enter: "Raund %{round}'a devam etmek için Enter'a basın..."
+  current_score: "MEVCUT SKOR: Siz %{player} - Bilgisayar %{computer}"
+  final_score: "FİNAL SKOR: Siz %{player} - Bilgisayar %{computer}"
+  congratulations: "🎉 TEBRİKLER! KAZANDINIZ! 🎉"
+  better_luck: "😔 Daha iyi şanslar! Bilgisayar kazandı."
+  tie: "🤝 Beraberlik! İyi oynadınız!"
+  game_over: "OYUN BİTTİ"
+
+round:
+  title: "RAUND %{number}"
+  available_weapons: "Mevcut Silahlar"
+  choose_weapon: "Silahınızı seçin (1-%{count}): "
+  insufficient_balance: "Yetersiz bakiye! $%{needed} gerekiyor ama $%{have} var"
+  you_selected: "Seçtiğiniz: %{weapon} (Dengeli Skor: %{score})"
+  computer_selected: "Bilgisayar seçti: %{weapon} (Dengeli Skor: %{score})"
+  you_win: "BU RAUNDU KAZANDINIZ!"
+  computer_wins: "BİLGİSAYAR BU RAUNDU KAZANDI!"
+  draw: "BERABERLİK!"
+
+weapons:
+  database_title: "SİLAH VERİTABANI"
+  headers:
+    name: "Silah Adı"
+    price: "Fiyat($)"
+    damage: "Hasar"
+    firerate: "Ateş Hızı(DK)"
+    magazine: "Şarjör Boyutu"
+    falloff: "Hasar Düşüşü"
+    range: "Hassas Menzil"
+    recoil: "Geri Tepme"
+    balanced_score: "Dengeli Skor"
+    dps: "Saniye Başı Hasar"
+  total_weapons: "Toplam silah: %{count}"
+  affordable: "✓"
+  not_affordable: "✗"
+
+economy:
+  sell_weapon: "Silahı $%{amount} karşılığında sat? (e/h): "
+  weapon_sold: "Silah $%{amount} karşılığında satıldı"
+  weapon_not_sold: "Silah satılmadı"
+
+events:
+  foggy_weather: "🌫️ SİSLİ HAVA: Silah menzili %20 azaldı"
+  armored_enemies: "🛡️ ZIRHLI DÜŞMAN: Silah hasarı %15 azaldı"
+  windy_conditions: "💨 RÜZGARLI KOŞULLAR: Silah geri tepmesi %10 arttı"
+
+perks:
+  title: "YETENEK SEÇİMİ"
+  choose_perk: "Yetenek seçin (1-3): "
+  economist: "Ekonomist - Tüm silah fiyatlarında %10 indirim"
+  control_master: "Kontrol Ustası - Silah geri tepmesinde %15 azalma"
+  long_shot: "Uzun Mesafe - Silah menzilinde %10 artış"
+
+attachments:
+  title: "AŞAĞI MAĞAZA"
+  buy_attachment: "Aşağı satın al? (1-3, 0 atla): "
+  extended_mag: "Genişletilmiş Şarjör (+10 şarjör) - $300"
+  grip: "Tutamak (-%10 geri tepme) - $200"
+  suppressor: "Susturucu (-%5 hasar, -%10 geri tepme) - $400"
+  attachment_bought: "Aşağı satın alındı: %{name}"
+
+statistics:
+  title: "OYUNCU İSTATİSTİKLERİ"
+  total_games: "Toplam Oyun: %{count}"
+  wins: "Galibiyet: %{count}"
+  losses: "Mağlubiyet: %{count}"
+  draws: "Beraberlik: %{count}"
+  win_rate: "Kazanma Oranı: %{rate}%"
+  most_used_weapon: "En Çok Kullanılan Silah: %{weapon} (%{count} kez)"
+  achievements: "Başarımlar:"
+  no_achievements: "Henüz başarım kazanılmadı"
+
+achievements:
+  economist: "Ekonomist - Parası bitmeden oyunu tamamla"
+  streaker: "Seri Kazanan - 5-0 kazan"
+  draw_master: "Beraberlik Ustası - En az 2 beraberlik yaşa"
+
+errors:
+  invalid_number: "Lütfen geçerli bir sayı girin."
+  invalid_range: "Lütfen %{min} ile %{max} arasında bir sayı girin."
+  no_weapons: "Silah yüklenmedi. Oyun başlatılamaz."
+  csv_error: "CSV dosyası okuma hatası: %{message}"
+  config_error: "Konfigürasyon yükleme hatası: %{message}"
+  profile_error: "Profil yükleme hatası: %{message}"
+
+simulation:
+  title: "SİLAH SAVAŞI SİMÜLASYONU"
+  running: "%{count} simülasyon çalıştırılıyor..."
+  results: "Simülasyon Sonuçları:"
+  weapon_win_rate: "%{weapon}: %{rate}% kazanma oranı"
+
+help:
+  title: "OYUN YARDIMI"
+  content: |
+    Bu, bilgisayara karşı yarıştığınız bir silah savaşı oyunudur.
+
+    Her raundda:
+    1. Silah satın almak için bütçeniz olur
+    2. Mevcut seçeneklerden bir silah seçin
+    3. Bilgisayar bir silah seçer
+    4. Silahlar dengeli skor ile karşılaştırılır
+    5. Daha yüksek skor raundu kazanır
+
+    Dengeli Skor Formülü:
+    ((Hasar × Ateş Hızı) + (Şarjör × Menzil)) / (Düşüş + Geri Tepme)
+
+    Silahları orijinal fiyatının %70'i karşılığında satabilirsiniz.
+    Kazanmak $500 bonus, kaybetmek $200 bonus verir.
+
+    Rastgele olaylar raundlar sırasında silah performansını etkileyebilir.

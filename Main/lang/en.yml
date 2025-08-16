@@ -1,0 +1,131 @@
+# English Language File
+
+menu:
+  title: "MAIN MENU"
+  play: "Play"
+  options: "Options"
+  help: "Help"
+  about: "About"
+  statistics: "Statistics"
+  exit: "Exit"
+  choice_prompt: "Enter your choice (1-7): "
+
+game:
+  title: "CS2 WEAPON BATTLE GAME"
+  welcome: "Welcome to the weapon battle game!"
+  rounds_info: "You will play %{rounds} rounds against the computer."
+  budget_info: "Each round, you'll have a budget to buy weapons."
+  score_info: "The weapon with the higher balanced score wins!"
+  difficulty: "Difficulty: %{level}"
+  balance: "Your balance: $%{amount}"
+  round_bonus: "Round bonus: +$%{amount}"
+  press_enter: "Press Enter to continue to Round %{round}..."
+  current_score: "CURRENT SCORE: You %{player} - Computer %{computer}"
+  final_score: "FINAL SCORE: You %{player} - Computer %{computer}"
+  congratulations: "🎉 CONGRATULATIONS! YOU WIN! 🎉"
+  better_luck: "😔 Better luck next time! Computer wins."
+  tie: "🤝 It's a tie! Well played!"
+  game_over: "GAME OVER"
+
+round:
+  title: "ROUND %{number}"
+  available_weapons: "Available Weapons"
+  choose_weapon: "Choose your weapon (1-%{count}): "
+  insufficient_balance: "Insufficient balance! You need $%{needed} but have $%{have}"
+  you_selected: "You selected: %{weapon} (Balanced Score: %{score})"
+  computer_selected: "Computer selected: %{weapon} (Balanced Score: %{score})"
+  you_win: "YOU WIN THIS ROUND!"
+  computer_wins: "COMPUTER WINS THIS ROUND!"
+  draw: "IT'S A DRAW!"
+
+weapons:
+  database_title: "WEAPON DATABASE"
+  headers:
+    name: "Weapon Name"
+    price: "Price($)"
+    damage: "Damage"
+    firerate: "Fire Rate(RPM)"
+    magazine: "Magazine Size"
+    falloff: "Damage Falloff"
+    range: "Accurate Range"
+    recoil: "Recoil"
+    balanced_score: "Balanced Score"
+    dps: "DPS"
+  total_weapons: "Total weapons: %{count}"
+  affordable: "✓"
+  not_affordable: "✗"
+
+economy:
+  sell_weapon: "Sell weapon for $%{amount}? (y/n): "
+  weapon_sold: "Weapon sold for $%{amount}"
+  weapon_not_sold: "Weapon not sold"
+
+events:
+  foggy_weather: "🌫️ FOGGY WEATHER: Weapon range reduced by 20%"
+  armored_enemies: "🛡️ ARMORED ENEMIES: Weapon damage reduced by 15%"
+  windy_conditions: "💨 WINDY CONDITIONS: Weapon recoil increased by 10%"
+
+perks:
+  title: "PERK SELECTION"
+  choose_perk: "Choose your perk (1-3): "
+  economist: "Economist - 10% discount on all weapon prices"
+  control_master: "Control Master - 15% reduction in weapon recoil"
+  long_shot: "Long Shot - 10% increase in weapon range"
+
+attachments:
+  title: "ATTACHMENT SHOP"
+  buy_attachment: "Buy attachment? (1-3, 0 to skip): "
+  extended_mag: "Extended Magazine (+10 magazine) - $300"
+  grip: "Grip (-10% recoil) - $200"
+  suppressor: "Suppressor (-5% damage, -10% recoil) - $400"
+  attachment_bought: "Attachment purchased: %{name}"
+
+statistics:
+  title: "PLAYER STATISTICS"
+  total_games: "Total Games: %{count}"
+  wins: "Wins: %{count}"
+  losses: "Losses: %{count}"
+  draws: "Draws: %{count}"
+  win_rate: "Win Rate: %{rate}%"
+  most_used_weapon: "Most Used Weapon: %{weapon} (%{count} times)"
+  achievements: "Achievements:"
+  no_achievements: "No achievements unlocked yet"
+
+achievements:
+  economist: "Economist - Complete a game without running out of money"
+  streaker: "Streaker - Win 5-0"
+  draw_master: "Draw Master - Experience at least 2 draws"
+
+errors:
+  invalid_number: "Please enter a valid number."
+  invalid_range: "Please enter a number between %{min} and %{max}."
+  no_weapons: "No weapons loaded. Cannot start game."
+  csv_error: "Error reading CSV file: %{message}"
+  config_error: "Error loading config: %{message}"
+  profile_error: "Error loading profile: %{message}"
+
+simulation:
+  title: "WEAPON BATTLE SIMULATION"
+  running: "Running %{count} simulations..."
+  results: "Simulation Results:"
+  weapon_win_rate: "%{weapon}: %{rate}% win rate"
+
+help:
+  title: "GAME HELP"
+  content: |
+    This is a weapon battle game where you compete against the computer.
+    
+    Each round:
+    1. You get a budget to buy weapons
+    2. Choose a weapon from the available options
+    3. Computer selects a weapon
+    4. Weapons are compared using balanced score
+    5. Higher score wins the round
+    
+    Balanced Score Formula:
+    ((Damage × Fire Rate) + (Magazine × Range)) / (Falloff + Recoil)
+    
+    You can sell weapons for 70% of their original price.
+    Winning gives you $500 bonus, losing gives $200 bonus.
+    
+    Random events may affect weapon performance during rounds.
