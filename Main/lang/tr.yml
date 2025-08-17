@@ -8,7 +8,8 @@ menu:
   about: "Hakkında"
   statistics: "İstatistikler"
   exit: "Çıkış"
-  choice_prompt: "Seçiminizi girin (1-7): "
+  choice_prompt: "Seçiminizi girin (1-6): "
+  goodbye: "Oynadığınız için teşekkürler! Güle güle!"
 
 game:
   title: "CS2 SİLAH SAVAŞI OYUNU"
@@ -37,6 +38,16 @@ round:
   you_win: "BU RAUNDU KAZANDINIZ!"
   computer_wins: "BİLGİSAYAR BU RAUNDU KAZANDI!"
   draw: "BERABERLİK!"
+  no_weapons: "Mevcut silah yok. Oyun bitti!"
+  auto_selection: "Otomatik seçim: %{weapon}"
+  summary: "RAUND ÖZETİ: Oyuncu %{player_score} vs Bilgisayar %{computer_score} - %{result}"
+  weapon_types:
+    pistols: "TABANCALAR"
+    smgs: "HAFİF MAKİNALI TÜFEKLER"
+    shotguns: "POMPALI TÜFEKLER"
+    rifles: "TÜFEKLER"
+    elite: "KESKİN NİŞANCI & AĞIR MAKİNALI"
+    mixed: "KARIŞIK SİLAHLAR"
 
 weapons:
   database_title: "SİLAH VERİTABANI"
@@ -74,11 +85,13 @@ perks:
 
 attachments:
   title: "AŞAĞI MAĞAZA"
-  buy_attachment: "Aşağı satın al? (1-3, 0 atla): "
+  buy_attachment: "Aşağı satın al? (1-3, 0 bitir): "
   extended_mag: "Genişletilmiş Şarjör (+10 şarjör) - $300"
   grip: "Tutamak (-%10 geri tepme) - $200"
   suppressor: "Susturucu (-%5 hasar, -%10 geri tepme) - $400"
   attachment_bought: "Aşağı satın alındı: %{name}"
+  finish: "Alışverişi Bitir"
+  insufficient_balance: "Yetersiz bakiye!"
 
 statistics:
   title: "OYUNCU İSTATİSTİKLERİ"
@@ -88,6 +101,9 @@ statistics:
   draws: "Beraberlik: %{count}"
   win_rate: "Kazanma Oranı: %{rate}%"
   most_used_weapon: "En Çok Kullanılan Silah: %{weapon} (%{count} kez)"
+  top_weapons: "GALİBİYETLERİNE GÖRE İLK 5 SİLAH"
+  wins_short: "galibiyet"
+  top_elo: "ELO PUANINA GÖRE İLK 5 SİLAH"
   achievements: "Başarımlar:"
   no_achievements: "Henüz başarım kazanılmadı"
 
@@ -129,3 +145,39 @@ help:
     Kazanmak $500 bonus, kaybetmek $200 bonus verir.
 
     Rastgele olaylar raundlar sırasında silah performansını etkileyebilir.
+
+    KONTROLLER:
+    - Seçimler için sayı tuşlarını kullanın (1, 2, 3...)
+    - Devam etmek için Enter'a basın
+    - Evet için 'e' veya 'y', hayır için 'h' yazın
+
+    İPUÇLARI:
+    - Silah DPS ve dengeli skorunu göz önünde bulundurun
+    - Silah performansını artırmak için aşaları kullanın
+    - Stratejinize uygun yetenek seçin
+    - Bakiyenizi dikkatli takip edin
+    - Rastgele olaylar her iki oyuncuyu da eşit etkiler
+
+options:
+  title: "SEÇENEKLER MENÜSÜ"
+  language: "Dil"
+  difficulty: "Zorluk"
+  events: "Rastgele Olaylar"
+  colors: "Renkli Çıktı"
+  reset_profile: "Profili Sıfırla"
+  back: "Ana Menüye Dön"
+  choice_prompt: "Seçiminizi girin (0-5): "
+  select_language: "Dil Seçin:"
+  language_choice: "Dil seçin (1-2): "
+  language_changed: "Dil başarıyla değiştirildi!"
+  select_difficulty: "Zorluk Seçin:"
+  difficulty_choice: "Zorluk seçin (1-3): "
+  difficulty_changed: "Zorluk başarıyla değiştirildi!"
+  enabled: "Açık"
+  disabled: "Kapalı"
+  events_toggled: "Rastgele olaylar: %{status}"
+  colors_toggled: "Renkli çıktı: %{status}"
+  reset_warning: "UYARI: Bu tüm istatistiklerinizi sıfırlayacak!"
+  confirm_reset: "Emin misiniz? (e/h): "
+  profile_reset: "Profil başarıyla sıfırlandı!"
+  reset_cancelled: "Profil sıfırlama iptal edildi."
